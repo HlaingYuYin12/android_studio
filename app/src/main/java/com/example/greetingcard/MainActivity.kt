@@ -26,6 +26,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,8 +44,8 @@ class MainActivity : ComponentActivity() {
 //                        modifier = Modifier.padding(8.dp)
 //                    )
                     GreetingImage(
-                        message = "Happy Birthday, Yu!",
-                        from = "From John",
+                        message = stringResource(R.string.happy_birthday_text),
+                        from = stringResource(R.string.signature_text),
                         modifier = Modifier.background(color = Color.Red)
                     )
                 }
@@ -67,9 +68,9 @@ fun GreetingText(message: String, from: String ,modifier: Modifier = Modifier){
         Text(
             text = from,
             fontSize = 36.sp,
-            modifier = modifier
-                .padding(8.dp)
-                .align(Alignment.End)
+            modifier = Modifier
+                .padding(16.dp)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }
