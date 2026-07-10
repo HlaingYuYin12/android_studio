@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,53 +23,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GreetingCardTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize(),containerColor = MaterialTheme.colorScheme.background) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding),
-//                        color = MaterialTheme.colorScheme.background
-//
-//                    )
-//                }
-
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
-                    ){
-                        Greeting("Android")
-                    }
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ){
+                    GreetingText("Happy Birthday, Yu!", from = "From John")
+                }
             }
         }
     }
 }
-
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Surface(color = Color.Yellow) {
-        Text(
-            text = "Hello,my name is $name!",
-            modifier = modifier.padding(24.dp)
-        )
-    }
+fun GreetingText(message: String,from: String ,modifier: Modifier = Modifier){
+    Text(
+        text = message,
+        fontSize = 100.sp,
+        lineHeight = 116.sp
+    )
+    Text(
+        text = from,
+        fontSize = 36.sp
+    )
 }
 
-
-
-
-
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier, color: Color = MaterialTheme.colorScheme.onBackground) {
-//    Text(
-//        text = "Hello my name is $name!",
-//        modifier = modifier,
-//        color = color
-//    )
-//}
-
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "My Preview")
 @Composable
 fun GreetingPreview() {
     GreetingCardTheme {
-        Greeting("Hlaing Yu Yin")
+        GreetingText("Happy Birthday, Yu!", from="From John")
     }
 }
